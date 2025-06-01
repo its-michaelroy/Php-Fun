@@ -20,6 +20,7 @@
 
 
         $converter = new Converter($crypto);
+        $result = $converter->convert($amount);
     }
 
     echo "<p>Converting $amount $crypto ...</p>";
