@@ -7,6 +7,7 @@
     <h1>Conversion Results</h1>
 
     <?php
+    $browserUA = $_SERVER['HTTP_USER_AGENT'];
     if (isset($_POST["amount"]) && $amount > 0 && isset($_POST["crypto"])) {
         //Superglobal Vars
         $amount = $_POST["amount"];
