@@ -1,3 +1,7 @@
+<?php
+    include_once 'classes/converter.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,11 +11,15 @@
     <h1>Conversion Results</h1>
 
     <?php
+    require_once 'classes/converter.php';
     $browserUA = $_SERVER['HTTP_USER_AGENT'];
     if (isset($_POST["amount"]) && $amount > 0 && isset($_POST["crypto"])) {
         //Superglobal Vars
         $amount = $_POST["amount"];
         $crypto = $_POST["crypto"];
+
+
+        $converter = new Converter($crypto);
     }
 
     echo "<p>Converting $amount $crypto ...</p>";

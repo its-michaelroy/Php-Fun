@@ -3,7 +3,11 @@ class Converter {
 
 }
 
-class CryptoConverter extends Converter{
+interface CanConvert {
+    public function convert(float $value);
+}
+
+class CryptoConverter extends Converter {
     //properties - Can be public/private/protected
     //php uses garbage collectors
     //Has both constructor/deconstructor
@@ -16,5 +20,3 @@ class CryptoConverter extends Converter{
 
     }
     }
-
-    $c = new CryptoConverteer(currencyCode: "BTC");
