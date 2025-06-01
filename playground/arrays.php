@@ -2,6 +2,7 @@
 //OLD
 $list = array("id" => 1, 2, 3, 4, 5); // Old array declaration
 $countries = array("USA", "Canada", "Mexico"); // Old array with string values
+$titleName = "PHP Fundamentals";
 
 // NEW array declaration using short syntax
 $list2 = [1, 2, 3, 4, 5]; // Array declaration
@@ -66,3 +67,15 @@ echo "Sorted person by keys:\n";
 foreach ($person as $key => $value) {
     echo "$key: $value\n"; // Output each key-value pair in the sorted associative array
 }
+
+echo strlen($titleName); // Output the length of the names array
+echo "=============LOOPS=============\n";
+for ($i = 0; $i < count($countries); $i++) {
+    echo "Name at index $i: " . $names[$i] . "\n"; // Output each name with its index
+}
+echo "==========================\n";
+foreach ($countries as $country) {
+    echo "Country: $country\n"; // Output each country in the array
+}
+
+?>
