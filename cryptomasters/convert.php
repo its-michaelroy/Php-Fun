@@ -11,16 +11,19 @@
     <h1>Conversion Results</h1>
 
     <?php
-    require_once 'classes/converter.php';
+    require_once './classes.php';
     $browserUA = $_SERVER['HTTP_USER_AGENT'];
-    if (isset($_POST["amount"]) && $amount > 0 && isset($_POST["crypto"])) {
+    if (isset($_POST["amount"]) && isset($_POST["crypto"])) {
         //Superglobal Vars
         $amount = $_POST["amount"];
         $crypto = $_POST["crypto"];
 
 
-        $converter = new Converter($crypto);
+        $converter = new CryptoConverter($crypto);
         $result = $converter->convert($amount);
+
+        echo "<p>You want to convert $amount $crypto.</p>";
+        echo "<h2>You have USD $result</h2>";
     }
 
     echo "<p>Converting $amount $crypto ...</p>";
