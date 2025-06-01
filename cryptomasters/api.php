@@ -1,17 +1,12 @@
 <?php
 include("classes.php");
 
-// if (!isset($_GET["code"])) {
-//     $code = "BTC";
-//     // echo "{'error': 'No code provided'}";
+// Export a JSON to the client
+header("Content-Type: application/json");
+header("Access-Control-Allow-Origin: *");
 
-// } else {
-//     $code = $_GET["code"];
+$code = $_GET["code"] ?? "BTC";
 
-//     }
-
-$code = $_GET["code"] ?? "BTC"; // Default to BTC if no code is provided
-
-$converter = getConverter();
-$rateInUSD = $converter?->convert(); //safe call operator
-echo "{'rate': $rateInUSD}";
+$converter = new CryptoConverter($code);
+$rateInUSD = $converter->convert(); //safe call operator
+echo "{\"rate\": $rateInUSD}";
