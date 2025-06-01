@@ -1,5 +1,9 @@
 <?php
-class CryptoConverter {
+class Converter {
+
+}
+
+class CryptoConverter extends Converter{
     //properties - Can be public/private/protected
     //php uses garbage collectors
     //Has both constructor/deconstructor
