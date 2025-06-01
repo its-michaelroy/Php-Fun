@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
     <h1>Conversion Results</h1>
 
     <?php
-    //Superglobal Vars
-    $amount = $_GET["amount"];
-    $crypto = $_GET["crypto"];
+    if (isset($_POST["amount"]) && $amount > 0 && isset($_POST["crypto"])) {
+        //Superglobal Vars
+        $amount = $_POST["amount"];
+        $crypto = $_POST["crypto"];
+    }
 
     echo "<p>Converting $amount $crypto ...</p>";
     // Simulated conversion rates
