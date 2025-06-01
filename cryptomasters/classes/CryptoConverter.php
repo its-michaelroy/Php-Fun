@@ -16,7 +16,7 @@ class CryptoConverter extends Converter {
     }
 
     //methods
-    public function convert(float $value): float|bool {
+    public function convert(float $value = 1): float|bool {
         $code = $this->currencyCode;
         $url = "https://cex.io/api/ticker/{$code}/USD";
         $json = file_get_contents($url);
