@@ -34,9 +34,11 @@
     </h1>
     <main>
       <?php
-
-      $json = file_get_contents("data/data.json");
-      $exhibits = json_decode($json, true);
+      include("classes.php"); //Different way to include what's needed besides using include keyword
+      // $json = file_get_contents("data/data.json");
+      // $exhibits = json_decode($json, true);
+      $db = new DB();
+      $exhibits = $db->execute("SELECT * FROM exhibits");
 
       foreach ($exhibits as $exhibit):
       ?>
