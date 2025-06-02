@@ -1,0 +1,5 @@
+<?php
+// SQlite
+class DB {
+
+}

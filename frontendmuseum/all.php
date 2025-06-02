@@ -35,8 +35,7 @@
     <main>
       <?php
 
-      $json = file_get_contents("data/data.json");
-      $exhibits = json_decode($json, true);
+      include 'data/data.php';
 
       foreach ($exhibits as $exhibit):
       ?>
