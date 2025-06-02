@@ -1,25 +1,31 @@
 <?php include "header_inc.php" ?>
-  <ul>
   <?php
-      include("classes.php"); //Different way to include what's needed besides using include keyword
-      // $json = file_get_contents("data/data.json");
-      // $exhibits = json_decode($json, true);
-      $db = new DB();
-      $exhibits = $db->execute("SELECT * FROM exhibits");
 
-      foreach ($exhibits as $exhibit):
+    // Request ALL errors to be displayed
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+
+
+      include("classes.php"); //Different way to include what's needed besides using include keyword
+      $db = new DB();
+
+      try{
+          $exhibits = $db->execute("SELECT * FROM exhibits");
+
+          $exhibit = $exhibits[$_GET['index'] ?? 0];
+      }catch(Exception $e){
+          echo "h4>ERROR!</h4>";
+      }
+
   ?>
-    <li>
-      <article>
-        <h2><?php echo $exhibit['title']; ?></h2>
-        <p><?php echo $exhibit['description']; ?></p>
-        <img
-          src="./gallery/<?php echo $exhibit['image']; ?>"
-          fetchpriority="high"
-          decoding="sync"
-        />
-      </article>
-    </li>
-  <?php endforeach; ?>
-  </ul>
+    <article>
+      <h2><?php echo $exhibit['title']; ?></h2>
+      <p><?php echo $exhibit['description']; ?></p>
+      <img
+        src="./gallery/<?php echo $exhibit['image']; ?>"
+        fetchpriority="high"
+        decoding="sync"
+      />
+    </article>
 <?php include "header_inc.php" ?>
